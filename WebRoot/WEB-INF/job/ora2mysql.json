@@ -1,0 +1,49 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 3
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader":{
+					"name": "oraclereader",
+					"parameter": {
+						"username": "sfsj",
+						"password": "admin",
+						"column": ["*"],
+						"connection": [
+							{
+								"table": ["app_download"],
+								"jdbcUrl": ["jdbc:oracle:thin:@192.168.0.16:1521:orcl"]
+							}
+						]
+					}
+				} 
+				,
+                "writer":{
+					"name": "mysqlwriter",
+					"parameter": {
+						"username": "root",
+						"password": "123",
+						"writeMode": "",
+						"column": ["*"],
+						"session": [],
+						"preSql": ["delete from app_download;"],
+						"connection": [
+							{
+								"jdbcUrl": "jdbc:mysql://localhost:3306/appdownload",
+								"table": ["app_download"]
+							}
+						]
+					}
+				} 
+            }
+        ]
+    }
+}

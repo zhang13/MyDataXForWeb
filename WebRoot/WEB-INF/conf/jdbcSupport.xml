@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- 
+此文件只在开发和测试时使用，不在部署时使用。
+因为构建脚本在生成部署包时会用jdbcSupportForDeploy.xml替代此文件
+-->
+<beans>
+	<!-- 开发或集成测试时，使用下面的数据源。注意，单元测试不能连接数据库。 -->
+	<!--my sql-->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://192.168.0.12:3306/freeway_info_publish?useUnicode=true&amp;characterEncoding=utf-8" />
+		<property name="username" value="root" />
+		<property name="password" value="123" />
+		<!-- Connection Pooling Info -->
+		<property name="initialSize" value="5" />
+		<property name="maxActive" value="100" />
+		<property name="maxIdle" value="30" />
+		<property name="maxWait" value="1000" />
+		<property name="poolPreparedStatements" value="false" /><!-- 若为true会引起内存泄漏. 屈剑峰 2011年9月9日--> 
+		<property name="defaultAutoCommit" value="true" />
+		<property name="logAbandoned" value="true" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="60"/>
+		<!-- 加上这个可以在数据库断开时立即发现，并保证在数据库恢复时快速重连 -->
+		<property name="validationQuery" value="select 'validate connection'"/>
+	</bean>
+
+</beans>

@@ -1,0 +1,52 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 3
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "root",
+                        "password": "123",
+                        "column": ["*"],
+                        "connection": [
+                            {
+                               "table": [
+									"app_download"
+                                ],
+                                "jdbcUrl": [
+     "jdbc:mysql://localhost:3306/appdownload"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "sqlserverwriter",
+                    "parameter": {
+						"encoding": "UTF-8",
+                        "username": "sa",
+                        "password": "123",
+                        "column": ["*"],
+                        "connection": [
+                            {
+                                "table": [
+                                    "app_download"
+                                ],
+                                "jdbcUrl": "jdbc:sqlserver://192.168.0.12:1433;DatabaseName=DATA_BAK"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

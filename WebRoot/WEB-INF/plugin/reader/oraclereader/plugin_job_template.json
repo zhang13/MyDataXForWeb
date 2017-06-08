@@ -1,0 +1,16 @@
+{
+    "name": "oraclereader",
+    "parameter": {
+        "username": "",
+        "password": "",
+        "column": [],
+        "where": "",
+        "connection": [
+            {
+                "table": [],
+                "querySql": [],
+                "jdbcUrl": []
+            }
+        ]
+    }
+}

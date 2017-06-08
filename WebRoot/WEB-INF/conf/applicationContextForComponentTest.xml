@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	本配置只为集成测试使用。
+	集成测试中只初始化数据库相关配置，包括数据源、事务管理器等bean。
+	不初始化webservice和jms相关bean.
+	如果要在测试中使用webservice和jms，请用系统测试实现。
+ -->
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xmlns:http-conf="http://cxf.apache.org/transports/http/configuration" 
+    xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd"  
+    default-autowire="byName" default-lazy-init="false">
+
+	<!-- 数据源配置  -->
+	<import resource="jdbcSupport.xml"/>
+	<bean id="beanUtil" class="direction.framework.utils.BeanUtil"  />
+</beans>
