@@ -21,7 +21,9 @@ public abstract class DefaultTableTrasferConverter{
 	 * 获取目标表名列表,返回null则取与源表一样表明
 	 * @return
 	 */
-	public abstract List<String> getDestTables();
+	public List<String> getDestTables(){
+		return null;
+	}
 	
 	/**
 	 * 转换表名称
@@ -35,7 +37,9 @@ public abstract class DefaultTableTrasferConverter{
 	 * @param tableName
 	 * @return 真实表名
 	 */
-	public abstract String changeToTableName(String tableName);
+	public String changeToTableName(String tableName){
+		return tableName;
+	}
 	
 	/**
 	 * 建表

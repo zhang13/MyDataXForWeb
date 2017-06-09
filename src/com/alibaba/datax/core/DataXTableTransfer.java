@@ -119,14 +119,14 @@ public class DataXTableTransfer {
 		if(tableList==null||tableList.size()==0){
 			throw new RuntimeException("没有表需要迁移！");
 		}
-		List<String> destTableLis = convertFunc.getDestTables();
+		List<String> destTableList = convertFunc.getDestTables();
 		String fromTableName = null;
 		String toTableName = null;
 		for (int i = 0; i < tableList.size(); i++) {
 			String baseTableName = tableList.get(i);
 			fromTableName = convertFunc.convertTableName(baseTableName);
-			if(destTableLis!=null&&destTableLis.size()==tableList.size()){
-				toTableName = destTableLis.get(i);
+			if(destTableList!=null&&destTableList.size()==tableList.size()){
+				toTableName = destTableList.get(i);
 			}else{
 				toTableName = convertFunc.changeToTableName(fromTableName);
 			}
